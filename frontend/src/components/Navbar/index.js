@@ -14,19 +14,23 @@ const Navbar = () => {
     const classes = useStyles();
 
     return (
-        <AppBar className={classes.root}>
-            <Toolbar>
-                <IconButton>
-                    <Menu />
-                </IconButton>
+        <React.Fragment>
+            <AppBar className={classes.root}>
+                <Toolbar>
+                    <IconButton className={classes.menuIcon}>
+                        <Menu />
+                    </IconButton>
 
-                <Typography variant="h5">
-                    Talky
-                </Typography>
-            </Toolbar>
+                    <Typography variant="h5" className={classes.title}>
+                        Talky
+                    </Typography>
 
-            <Button>LOGIN</Button>
-        </AppBar>
+                    <Button className={classes.loginButton}>LOGIN</Button>
+                </Toolbar>
+            </AppBar>
+
+            <Toolbar />
+        </React.Fragment>
     );
 };
 
