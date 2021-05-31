@@ -13,6 +13,9 @@ const useStyles = makeStyles({
     },
     loginButton: {
         color: "#FFF"
+    },
+    link: {
+        textDecoration: "none"
     }
 });
 

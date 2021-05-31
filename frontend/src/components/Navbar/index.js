@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import {
     AppBar,
     Toolbar,
@@ -21,11 +22,26 @@ const Navbar = () => {
                         <Menu />
                     </IconButton>
 
-                    <Typography variant="h5" className={classes.title}>
-                        Talky
-                    </Typography>
+                    <Link
+                        to="/"
+                        className={`${classes.link} ${classes.title}`}
+                    >
+                        <Typography
+                            variant="h5"
+                            className={classes.title}
+                        >
+                            Talky
+                        </Typography>
+                    </Link>
 
-                    <Button className={classes.loginButton}>LOGIN</Button>
+                    <Link
+                        to="/login"
+                        className={classes.link}
+                    >
+                        <Button className={classes.loginButton}>
+                            LOGIN
+                        </Button>
+                    </Link>
                 </Toolbar>
             </AppBar>
 
