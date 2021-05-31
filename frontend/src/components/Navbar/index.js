@@ -8,9 +8,13 @@ import {
 } from "@material-ui/core";
 import { Menu } from "@material-ui/icons";
 
+import useStyles from "./styles";
+
 const Navbar = () => {
+    const classes = useStyles();
+
     return (
-        <AppBar>
+        <AppBar className={classes.root}>
             <Toolbar>
                 <IconButton>
                     <Menu />
