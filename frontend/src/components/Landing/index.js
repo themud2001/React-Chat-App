@@ -36,11 +36,17 @@ const Landing = () => {
                         spacing={2}
                     >
                         <Grid item>
-                            <Button className={`${classes.button} ${classes.signupButton}`}>SIGN UP</Button>
+                            <Button
+                                component={Link}
+                                to="/signup"
+                                className={`${classes.button} ${classes.signupButton}`}
+                            >SIGN UP</Button>
                         </Grid>
 
                         <Grid item>
                             <Button
+                                component={Link}
+                                to="/login"
                                 className={`${classes.button} ${classes.loginButton}`}
                                 variant="outlined"
                             >LOG IN</Button>
