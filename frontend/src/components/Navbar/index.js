@@ -37,17 +37,14 @@ const Navbar = () => {
                             </Grid>
 
                             <Grid item>
-                                <Link
+                                <Typography
+                                    component={Link}
                                     to="/"
-                                    className={`${classes.link} ${classes.title}`}
+                                    variant="h5"
+                                    className={classes.title}
                                 >
-                                    <Typography
-                                        variant="h5"
-                                        className={classes.title}
-                                    >
-                                        Talky
-                                    </Typography>
-                                </Link>
+                                    Talky
+                                </Typography>
                             </Grid>
                         </Grid>
 
@@ -58,14 +55,11 @@ const Navbar = () => {
                             justify="flex-end"
                         >
                             <Grid item>
-                                <Link
+                                <Button
+                                    component={Link}
                                     to="/login"
-                                    className={classes.link}
-                                >
-                                    <Button className={classes.loginButton}>
-                                        LOGIN
-                                    </Button>
-                                </Link>
+                                    className={classes.loginButton}
+                                >LOGIN</Button>
                             </Grid>
                         </Grid>
                     </Grid>
