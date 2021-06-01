@@ -42,9 +42,7 @@ const Navbar = () => {
                                     to="/"
                                     variant="h5"
                                     className={classes.title}
-                                >
-                                    Talky
-                                </Typography>
+                                >Talky</Typography>
                             </Grid>
                         </Grid>
 
