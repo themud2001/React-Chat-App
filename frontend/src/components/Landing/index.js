@@ -47,7 +47,7 @@ const Landing = () => {
                         </Grid>
 
                         <Grid item>
-                            <Typography variant="h6">or</Typography>
+                            <Typography variant="overline">or</Typography>
                         </Grid>
 
                         <Grid item>
