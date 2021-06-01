@@ -8,8 +8,7 @@ const useStyles = makeStyles({
         color: "#FFF"
     },
     title: {
-        color: "#FFF",
-        flexGrow: 1
+        color: "#FFF"
     },
     loginButton: {
         color: "#FFF"

@@ -5,7 +5,8 @@ import {
     Toolbar,
     Typography,
     IconButton,
-    Button
+    Button,
+    Grid
 } from "@material-ui/core";
 import { Menu } from "@material-ui/icons";
 
@@ -18,30 +19,56 @@ const Navbar = () => {
         <React.Fragment>
             <AppBar className={classes.root}>
                 <Toolbar>
-                    <IconButton className={classes.menuIcon}>
-                        <Menu />
-                    </IconButton>
-
-                    <Link
-                        to="/"
-                        className={`${classes.link} ${classes.title}`}
+                    <Grid
+                        container
+                        direction="row"
+                        alignItems="center"
                     >
-                        <Typography
-                            variant="h5"
-                            className={classes.title}
+                        <Grid
+                            item
+                            container
+                            xs={6}
+                            alignItems="center"
                         >
-                            Talky
-                        </Typography>
-                    </Link>
+                            <Grid item>
+                                <IconButton className={classes.menuIcon}>
+                                    <Menu />
+                                </IconButton>
+                            </Grid>
 
-                    <Link
-                        to="/login"
-                        className={classes.link}
-                    >
-                        <Button className={classes.loginButton}>
-                            LOGIN
-                        </Button>
-                    </Link>
+                            <Grid item>
+                                <Link
+                                    to="/"
+                                    className={`${classes.link} ${classes.title}`}
+                                >
+                                    <Typography
+                                        variant="h5"
+                                        className={classes.title}
+                                    >
+                                        Talky
+                                    </Typography>
+                                </Link>
+                            </Grid>
+                        </Grid>
+
+                        <Grid
+                            item
+                            container
+                            xs={6}
+                            justify="flex-end"
+                        >
+                            <Grid item>
+                                <Link
+                                    to="/login"
+                                    className={classes.link}
+                                >
+                                    <Button className={classes.loginButton}>
+                                        LOGIN
+                                    </Button>
+                                </Link>
+                            </Grid>
+                        </Grid>
+                    </Grid>
                 </Toolbar>
             </AppBar>
 
