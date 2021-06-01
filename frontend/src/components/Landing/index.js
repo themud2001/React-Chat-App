@@ -26,7 +26,11 @@ const Landing = () => {
                 md={5}
                 lg={4}
             >
-                <Paper elevation={3} square>
+                <Paper
+                    elevation={3}
+                    className={classes.paper}
+                    square
+                >
                     <Grid
                         container
                         direction="column"
