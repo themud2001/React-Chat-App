@@ -9,7 +9,6 @@ import {
 
 import useStyles from "./styles";
 
-// TODO: Fix the links
 const Landing = () => {
     const classes = useStyles();
 
