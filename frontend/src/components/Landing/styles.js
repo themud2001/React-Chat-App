@@ -15,9 +15,6 @@ const useStyles = makeStyles({
     loginButton: {
         borderColor: "#FE6B8B",
         color: "#FE6B8B"
-    },
-    link: {
-        textDecoration: "none"
     }
 });
 

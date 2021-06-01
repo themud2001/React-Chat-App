@@ -51,12 +51,10 @@ const Landing = () => {
                         </Grid>
 
                         <Grid item>
-                            <Link
+                            <Button
+                                component={Link}
                                 to="/chat"
-                                className={classes.link}
-                            >
-                                <Button>Continue as a guest</Button>
-                            </Link>
+                            >Continue as a guest</Button>
                         </Grid>
                     </Grid>
                 </Paper>
