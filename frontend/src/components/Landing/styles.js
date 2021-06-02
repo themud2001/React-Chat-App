@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
     root: {
-        minHeight: "90vh"
+        minHeight: "80vh"
     },
     paper: {
         padding: "10vh 5vw"
