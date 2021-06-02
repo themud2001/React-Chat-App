@@ -1,11 +1,13 @@
 import React from "react";
+import { Link as RouterLink } from "react-router-dom";
 import {
     TextField,
     Button,
     Grid,
     Paper,
     Typography,
-    Divider
+    Divider,
+    Link
 } from "@material-ui/core";
 
 import useStyles from "./styles";
@@ -83,6 +85,15 @@ const SignUp = () => {
 
                             <Grid item>
                                 <Button type="submit" className={classes.submitButton}>SIGN UP</Button>
+                            </Grid>
+
+                            <Grid item>
+                                <Link
+                                    to="/login"
+                                    component={RouterLink}
+                                    className={classes.link}
+                                    variant="overline"
+                                >Already have an account?</Link>
                             </Grid>
                         </Grid>
                     </form>

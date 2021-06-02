@@ -32,6 +32,10 @@ const useStyles = makeStyles({
         color: "#FFF",
         width: "16rem",
         height: "3rem"
+    },
+    link: {
+        color: "#000",
+        textDecoration: "underline"
     }
 });
 
