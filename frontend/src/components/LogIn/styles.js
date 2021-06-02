@@ -16,6 +16,7 @@ const useStyles = makeStyles({
         margin: "10px 0 20px 0"
     },
     input: {
+        width: "15rem",
         '& label': {
             color: '#FE6B8B',
         },
@@ -31,7 +32,9 @@ const useStyles = makeStyles({
     },
     submitButton: {
         background: "linear-gradient(45deg, #FE6B8B, #FF8E53)",
-        color: "#FFF"
+        color: "#FFF",
+        width: "15rem",
+        height: "3rem"
     }
 });
 
