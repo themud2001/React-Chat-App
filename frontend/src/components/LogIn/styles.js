@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
     root: {
-        minHeight: "50vh"
+        minHeight: "80vh"
     },
     paper: {
         padding: "10vh 5vw"
@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     divider: {
         width: "100%",
         height: "1px",
-        margin: "10px 0 50px 0"
+        margin: "10px 0 20px 0"
     },
     inputs: {
         '& label': {

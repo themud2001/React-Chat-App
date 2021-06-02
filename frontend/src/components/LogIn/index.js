@@ -66,7 +66,7 @@ const LogIn = () => {
                             </Grid>
 
                             <Grid item xs={12}>
-                                <Button className={classes.submitButton}>LOGIN</Button>
+                                <Button type="submit" className={classes.submitButton}>LOGIN</Button>
                             </Grid>
                         </Grid>
                     </form>
