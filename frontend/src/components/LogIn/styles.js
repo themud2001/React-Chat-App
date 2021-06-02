@@ -21,13 +21,10 @@ const useStyles = makeStyles({
             color: '#FE6B8B',
         },
         '& label.Mui-focused': {
-            color: '#FF8E53',
-        },
-        '& .MuiInput-underline:before': {
-            borderBottomColor: '#FE6B8B',
+            color: '#FE6B8B',
         },
         '& .MuiInput-underline:after': {
-            borderBottomColor: '#FF8E53',
+            borderBottomColor: '#FE6B8B',
         }
     },
     submitButton: {
