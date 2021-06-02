@@ -51,7 +51,7 @@ const LogIn = () => {
                         >
                             <Grid item xs={12}>
                                 <TextField
-                                    className={classes.inputs}
+                                    className={classes.input}
                                     label="E-mail"
                                     size="small"
                                 />
@@ -59,7 +59,7 @@ const LogIn = () => {
 
                             <Grid item xs={12}>
                                 <TextField
-                                    className={classes.inputs}
+                                    className={classes.input}
                                     label="Password"
                                     size="small"
                                 />

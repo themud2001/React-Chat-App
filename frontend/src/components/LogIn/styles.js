@@ -15,7 +15,7 @@ const useStyles = makeStyles({
         height: "1px",
         margin: "10px 0 20px 0"
     },
-    inputs: {
+    input: {
         '& label': {
             color: '#FE6B8B',
         },
