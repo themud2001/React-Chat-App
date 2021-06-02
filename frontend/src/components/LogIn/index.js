@@ -49,7 +49,7 @@ const LogIn = () => {
                             alignItems="center"
                             spacing={4}
                         >
-                            <Grid item xs={12}>
+                            <Grid item>
                                 <TextField
                                     className={classes.input}
                                     label="E-mail"
@@ -57,7 +57,7 @@ const LogIn = () => {
                                 />
                             </Grid>
 
-                            <Grid item xs={12}>
+                            <Grid item>
                                 <TextField
                                     className={classes.input}
                                     label="Password"
@@ -65,7 +65,7 @@ const LogIn = () => {
                                 />
                             </Grid>
 
-                            <Grid item xs={12}>
+                            <Grid item>
                                 <Button type="submit" className={classes.submitButton}>LOGIN</Button>
                             </Grid>
                         </Grid>
