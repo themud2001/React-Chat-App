@@ -1,0 +1,31 @@
+.navbar {
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 1px 1px 5px #000000AA;
+}
+
+.navbar .logo {
+    text-decoration: none;
+    font-size: 36px;
+    margin-left: 50px;
+    font-weight: bold;
+    color: #FFF;
+}
+
+.navbar .nav-links {
+    list-style-type: none;
+    display: flex;
+    margin-right: 50px;
+    padding: 10px 20px;
+}
+
+.navbar .nav-links a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #FFF;
+    padding: 15px;
+}
