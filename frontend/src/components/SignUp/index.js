@@ -1,7 +1,14 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 
 const SignUp = () => {
-    return <div>SignUp Component</div>;
+    const { register, formState: { errors }, handleSubmit } = useForm();
+
+    return (
+        <div>
+            
+        </div>
+    );
 };
 
 export default SignUp;
