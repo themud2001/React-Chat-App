@@ -11,6 +11,7 @@ const app = express();
 const databaseConnect = require("./config/db");
 
 const authRoutes = require("./routes/auth");
+const errorHandler = require("./middleware/errorHandler");
 
 app.use(express.json());
 app.use(helmet());
@@ -21,7 +22,7 @@ app.use(compression());
 app.disable("x-powered-by");
 app.use(mongoSanitize({
     onSanitize: (req, key) => {
-        console.warn(`The request[${key}] was sanitized`, req);
+        console.warn(`The request ${key} was sanitized`, req);
     }
 }));
 
@@ -29,6 +30,8 @@ dotenv.config({ path: "./.env" });
 databaseConnect();
 
 app.use("/auth", authRoutes);
+
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 3090;
 
