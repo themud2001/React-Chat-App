@@ -10,13 +10,13 @@ const userSchema = new Schema({
             message: props => `${props.value} is not a valid E-mail`
         },
         lowercase: true,
-        required: [true, "Specify an E-mail"]
+        required: [true, "E-mail is required"]
     },
     password: {
         type: String,
         minLength: [8, "Must be 8 characters or more"],
         maxLength: [50, "Must be less than 50 characters"],
-        required: [true, "Specify a password"]
+        required: [true, "Password is required"]
     }
 });
 
