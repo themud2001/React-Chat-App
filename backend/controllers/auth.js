@@ -1,7 +1,6 @@
 const User = require("../models/User");
 
 exports.signIn = async (req, res, next) => {
-    console.log(req.cookies);
     const { email, password } = req.body;
 
     if (
