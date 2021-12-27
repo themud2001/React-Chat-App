@@ -1,5 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { connect } from "react-redux";
+
+// import { signUp } from "../../redux/actions";
 
 import "./styles.scss";
 
@@ -7,7 +10,7 @@ const SignUp = () => {
     const { register, formState: { errors }, handleSubmit, watch } = useForm({ mode: "onBlur" });
     const watchPassword = watch("password");
     const onFormSubmit = data => {
-        console.log(data);
+        // signUp(data);
     };
 
     const emailValidation = {
@@ -58,4 +61,4 @@ const SignUp = () => {
     );
 };
 
-export default SignUp;
+export default connect(null, {})(SignUp);
