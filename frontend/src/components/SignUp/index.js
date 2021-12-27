@@ -1,17 +1,23 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { connect } from "react-redux";
+import { useNavigate, Navigate } from "react-router-dom";
 
 import { signUp } from "../../redux/actions";
 
 import "./styles.scss";
 
-const SignUp = () => {
+const SignUp = ({ signUp, token, errorMessage }) => {
     const { register, formState: { errors }, handleSubmit, watch } = useForm({ mode: "onBlur" });
+    const navigate = useNavigate();
     const watchPassword = watch("password");
     const onFormSubmit = data => {
-        signUp(data);
+        signUp(data, () => navigate("/"));
     };
+
+    if (token) {
+        return <Navigate to="/" />;
+    }
 
     const emailValidation = {
         required: "E-mail is required",
@@ -42,13 +48,17 @@ const SignUp = () => {
             <div className="container">
                 <h1>Create an Account</h1>
                 <form onSubmit={handleSubmit(onFormSubmit)}>
+                    {(errorMessage && (!errorMessage.email && !errorMessage.password)) && <span className="error">{errorMessage}</span>}
+
                     <label htmlFor="email">E-mail:</label>
                     <input id="email" type="text" {...register("email", emailValidation)} />
                     {errors.email && <span className="error">{errors.email.message}</span>}
+                    {errorMessage.email && <span className="error">{errorMessage.email.message}</span>}
 
                     <label htmlFor="password">Password:</label>
                     <input id="password" type="password" {...register("password", passwordValidation)} />
                     {errors.password && <span className="error">{errors.password.message}</span>}
+                    {errorMessage.password && <span className="error">{errorMessage.password.message}</span>}
 
                     <label htmlFor="confirm-password">Confirm Password:</label>
                     <input id="confirm-password" type="password" {...register("confirm-password", confirmValidation)} />
@@ -61,4 +71,11 @@ const SignUp = () => {
     );
 };
 
-export default connect(null, {})(SignUp);
+const mapStateToProps = state => {
+    return {
+        token: state.auth.token,
+        errorMessage: state.auth.errorMessage
+    };
+};
+
+export default connect(mapStateToProps, { signUp })(SignUp);

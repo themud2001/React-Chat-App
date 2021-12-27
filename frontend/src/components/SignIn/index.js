@@ -14,6 +14,10 @@ const SignIn = ({ signIn, token, errorMessage }) => {
         signIn(data, () => navigate("/"));
     };
 
+    if (token) {
+        return <Navigate to="/" />;
+    }
+    
     const emailValidation = {
         required: "E-mail is required",
         pattern: {
@@ -21,10 +25,6 @@ const SignIn = ({ signIn, token, errorMessage }) => {
             message: "Invalid E-mail"
         }
     };
-
-    if (token) {
-        return <Navigate to="/" />;
-    }
 
     return (
         <div className="signin-wrapper">
