@@ -1,6 +1,7 @@
 const User = require("../models/User");
 
 exports.signIn = async (req, res, next) => {
+    console.log(req.cookies);
     const { email, password } = req.body;
 
     if (
@@ -21,7 +22,18 @@ exports.signIn = async (req, res, next) => {
 
         if (!isMatch) return res.status(400).json({ errorMessage: "Invalid credentials" });
 
-        return res.status(200).json({ token: user.getToken() });
+        const accessToken = user.getAccessToken();
+        const refreshToken = user.getRefreshToken();
+        const cookieOptions = {
+            httpOnly: true,
+            expires: new Date(
+                Date.now() + process.env.JWT_REFRESH_TOKEN_EXPIRY * 24 * 60 * 60 * 1000
+            )
+        };
+
+        return res.status(200)
+            .cookie("__refresh_token", refreshToken, cookieOptions)
+            .json({ token: accessToken });
     } catch (err) {
         return next(err);
     }
@@ -42,8 +54,18 @@ exports.signUp = async (req, res, next) => {
         if (user) return res.status(400).json({ errorMessage: "User already exists" });
 
         user = await User.create({ email, password });
+        const accessToken = user.getAccessToken();
+        const refreshToken = user.getRefreshToken();
+        const cookieOptions = {
+            httpOnly: true,
+            expires: new Date(
+                Date.now() + process.env.JWT_REFRESH_TOKEN_EXPIRY * 24 * 60 * 60 * 1000
+            )
+        };
         
-        return res.status(201).json({ token: user.getToken() });
+        return res.status(201)
+            .cookie("__refresh_token", refreshToken, cookieOptions)
+            .json({ token: accessToken });
     } catch (err) {
         return next(err);
     }
