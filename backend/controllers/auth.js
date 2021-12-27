@@ -32,7 +32,7 @@ exports.signIn = async (req, res, next) => {
 
         return res.status(200)
             .cookie("__refresh_token", refreshToken, cookieOptions)
-            .json({ token: accessToken });
+            .json({ token: accessToken, user: user.omitPassword() });
     } catch (err) {
         return next(err);
     }
@@ -64,7 +64,7 @@ exports.signUp = async (req, res, next) => {
         
         return res.status(201)
             .cookie("__refresh_token", refreshToken, cookieOptions)
-            .json({ token: accessToken });
+            .json({ token: accessToken, user: user.omitPassword() });
     } catch (err) {
         return next(err);
     }
