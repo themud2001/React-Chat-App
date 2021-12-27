@@ -5,16 +5,19 @@ import { Link } from "react-router-dom";
 
 import "./styles.scss";
 
-const Navbar = ({ token }) => {
+const Navbar = ({ token, user }) => {
     return ReactDOM.createPortal(
         <>
             <Link className="logo" to="/">Talky</Link>
 
-            {!token &&
-                <ul className="nav-links">
-                    <li><Link to="/signin">Sign In</Link></li>
-                    <li><Link to="/signup">Sign Up</Link></li>
-                </ul>
+            {token
+                ? <span className="welcome-message">Welcome, {user.username}!</span>
+                : (
+                    <ul className="nav-links">
+                        <li><Link to="/signin">Sign In</Link></li>
+                        <li><Link to="/signup">Sign Up</Link></li>
+                    </ul>
+                )
             }
         </>,
         document.querySelector(".navbar")
