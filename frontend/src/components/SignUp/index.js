@@ -13,7 +13,7 @@ const SignUp = () => {
     const emailValidation = {
         required: "E-mail is required",
         pattern: {
-            value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+            value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
             message: "Invalid E-mail"
         }
     };
@@ -22,7 +22,7 @@ const SignUp = () => {
         required: "Password is required",
         minLength: {
             value: 8,
-            message: "Must be more than 8 characters"
+            message: "Must be 8 characters or more"
         },
         maxLength: {
             value: 50,
