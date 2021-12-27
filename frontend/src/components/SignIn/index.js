@@ -9,13 +9,21 @@ const SignIn = () => {
         console.log(data);
     };
 
+    const emailValidation = {
+        required: "E-mail is required",
+        pattern: {
+            value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
+            message: "Invalid E-mail"
+        }
+    };
+
     return (
         <div className="signin-wrapper">
             <div className="container">
                 <h1>Sign In</h1>
                 <form onSubmit={handleSubmit(onFormSubmit)}>
                     <label htmlFor="email">E-mail:</label>
-                    <input id="email" type="text" {...register("email", { required: "E-mail is required" })} />
+                    <input id="email" type="text" {...register("email", emailValidation)} />
                     {errors.email && <span className="error">{errors.email.message}</span>}
 
                     <label htmlFor="password">Password:</label>
