@@ -29,6 +29,13 @@ userSchema.methods.comparePassword = async function(password) {
     return await bcrypt.compare(password, this.password);
 };
 
+userSchema.methods.omitPassword = function() {
+    return {
+        id: this.id,
+        email: this.email
+    };
+};
+
 userSchema.methods.getAccessToken = function() {
     return jwt.sign({ sub: this.id }, process.env.JWT_SECRET, {
         expiresIn: process.env.JWT_ACCESS_TOKEN_EXPIRY * 60
