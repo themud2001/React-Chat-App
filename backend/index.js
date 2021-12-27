@@ -13,10 +13,13 @@ const databaseConnect = require("./config/db");
 const authRoutes = require("./routes/auth");
 const errorHandler = require("./middleware/errorHandler");
 
+dotenv.config({ path: "./.env" });
+databaseConnect();
+
 app.use(express.json());
 app.use(helmet());
 app.use(cors({
-    origin: "http://localhost:3000",
+    origin: process.env.CLIENT_URL,
     credentials: true
 }));
 app.use(xss());
@@ -28,9 +31,6 @@ app.use(mongoSanitize({
         console.warn(`The request ${key} was sanitized`, req);
     }
 }));
-
-dotenv.config({ path: "./.env" });
-databaseConnect();
 
 app.use("/auth", authRoutes);
 
