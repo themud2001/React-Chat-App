@@ -3,6 +3,10 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const userSchema = new Schema({
+    username: {
+        type: String,
+        required: [true, "Username is required"]
+    },
     email: {
         type: String,
         validate: {
@@ -32,6 +36,7 @@ userSchema.methods.comparePassword = async function(password) {
 userSchema.methods.omitPassword = function() {
     return {
         id: this.id,
+        username: this.username,
         email: this.email
     };
 };

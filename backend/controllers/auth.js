@@ -39,20 +39,25 @@ exports.signIn = async (req, res, next) => {
 };
 
 exports.signUp = async (req, res, next) => {
-    const { email, password } = req.body;
+    const { username, email, password } = req.body;
 
     try {
-        await User.validate({ email, password }, ["email", "password"]);
+        await User.validate({ username, email, password }, ["username", "email", "password"]);
     } catch (err) {
         return res.status(400).json({ errorMessage: err.errors });
     }
 
     try {
-        let user = await User.findOne({ email });
+        let user = await User.findOne({
+            $or: [
+                { username: { $regex: `^${username}$`, $options: "i" } },
+                { email }
+            ]
+        });
 
         if (user) return res.status(400).json({ errorMessage: "User already exists" });
 
-        user = await User.create({ email, password });
+        user = await User.create({ username, email, password });
         const accessToken = user.getAccessToken();
         const refreshToken = user.getRefreshToken();
         const cookieOptions = {
