@@ -19,6 +19,10 @@ const SignUp = ({ signUp, token, errorMessage }) => {
         return <Navigate to="/" />;
     }
 
+    const usernameValidation = {
+        required: "Username is required"
+    };
+
     const emailValidation = {
         required: "E-mail is required",
         pattern: {
@@ -48,7 +52,12 @@ const SignUp = ({ signUp, token, errorMessage }) => {
             <div className="container">
                 <h1>Create an Account</h1>
                 <form onSubmit={handleSubmit(onFormSubmit)}>
-                    {(errorMessage && (!errorMessage.email && !errorMessage.password)) && <span className="error">{errorMessage}</span>}
+                    {(errorMessage && (!errorMessage.email && !errorMessage.password && !errorMessage.username)) && <span className="error">{errorMessage}</span>}
+
+                    <label htmlFor="username">Username:</label>
+                    <input id="username" type="text" {...register("username", usernameValidation)} />
+                    {errors.username && <span className="error">{errors.username.message}</span>}
+                    {errorMessage.username && <span className="error">{errorMessage.username.message}</span>}
 
                     <label htmlFor="email">E-mail:</label>
                     <input id="email" type="text" {...register("email", emailValidation)} />

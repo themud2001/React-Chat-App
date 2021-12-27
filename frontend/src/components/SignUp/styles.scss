@@ -10,7 +10,9 @@
     background-color: #fff;
     box-shadow: 1px 1px 5px #00000055;
     border-radius: 8px;
-    height: 600px;
+    height: auto;
+    min-height: 650px;
+    max-height: 800px;
     width: 500px;
     display: flex;
     flex-direction: column;
