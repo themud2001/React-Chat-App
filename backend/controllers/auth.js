@@ -1,5 +1,3 @@
-const jwt = require("jsonwebtoken");
-
 const User = require("../models/User");
 
 exports.signIn = async (req, res, next) => {
