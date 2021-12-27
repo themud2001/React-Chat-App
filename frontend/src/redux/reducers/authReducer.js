@@ -1,4 +1,4 @@
-import { SIGNIN_SUCCESS, SIGNIN_ERROR } from "../actions/types";
+import { AUTH_SUCCESS, AUTH_ERROR } from "../actions/types";
 
 const INITIAL_STATE = {
     token: "",
@@ -7,9 +7,9 @@ const INITIAL_STATE = {
 
 const authReducer = (state=INITIAL_STATE, action) => {
     switch (action.type) {
-        case SIGNIN_ERROR:
+        case AUTH_ERROR:
             return { ...state, errorMessage: action.payload.errorMessage };
-        case SIGNIN_SUCCESS:
+        case AUTH_SUCCESS:
             return { ...state, token: action.payload.token };
         default:
             return state;

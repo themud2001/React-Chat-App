@@ -1,16 +1,16 @@
 import api from "../../apis/api";
-import { SIGNIN_SUCCESS, SIGNIN_ERROR } from "./types";
+import { AUTH_SUCCESS, AUTH_ERROR } from "./types";
 
-export const signInSuccess = payload => {
+export const authSuccess = payload => {
     return {
-        type: SIGNIN_SUCCESS,
+        type: AUTH_SUCCESS,
         payload
     };
 };
 
-export const signInError = payload => {
+export const authError = payload => {
     return {
-        type: SIGNIN_ERROR,
+        type: AUTH_ERROR,
         payload
     };
 };
@@ -19,9 +19,20 @@ export const signIn = (formData, callback) => async dispatch => {
     try {
         const { data } = await api.post("/auth/signin", formData);
         
-        dispatch(signInSuccess(data));
-        callback();
+        dispatch(authSuccess(data));
+        if (callback) callback()
     } catch ({ response }) {
-        dispatch(signInError(response.data));
+        dispatch(authError(response.data));
+    }
+};
+
+export const signUp = (formData, callback) => async dispatch => {
+    try {
+        const { data } = await api.post("/auth/signup", formData);
+
+        dispatch(authSuccess(data));
+        if (callback) callback();
+    } catch ({ response }) {
+        dispatch(authError(response.data));
     }
 };

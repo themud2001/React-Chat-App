@@ -1,2 +1,2 @@
-export const SIGNIN_SUCCESS = "SIGNIN_SUCCESS";
-export const SIGNIN_ERROR = "SIGNIN_ERROR";
+export const AUTH_SUCCESS = "AUTH_SUCCESS";
+export const AUTH_ERROR = "AUTH_ERROR";
