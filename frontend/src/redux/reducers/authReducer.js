@@ -10,7 +10,7 @@ const authReducer = (state=INITIAL_STATE, action) => {
         case AUTH_ERROR:
             return { ...state, errorMessage: action.payload.errorMessage };
         case AUTH_SUCCESS:
-            return { ...state, token: action.payload.token };
+            return { ...state, token: action.payload.token, user: action.payload.user };
         default:
             return state;
     }
