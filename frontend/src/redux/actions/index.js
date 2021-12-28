@@ -15,6 +15,16 @@ export const authError = payload => {
     };
 };
 
+export const refreshToken = () => async dispatch => {
+    try {
+        const { data } = await api.get("/auth/refresh_token");
+
+        dispatch(authSuccess(data));
+    } catch (err) {
+        console.log("Not logged in!");
+    }
+};
+
 export const signIn = (formData, callback) => async dispatch => {
     try {
         const { data } = await api.post("/auth/signin", formData);

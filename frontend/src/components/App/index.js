@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import Auth from "../Auth";
 import Navbar from "../Navbar";
 import Landing from "../Landing";
 import SignIn from "../SignIn";
@@ -9,6 +10,7 @@ import SignUp from "../SignUp";
 const App = () => {
     return (
         <BrowserRouter>
+            <Auth />
             <Navbar />
             
             <Routes>

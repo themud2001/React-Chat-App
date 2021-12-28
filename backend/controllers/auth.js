@@ -1,4 +1,20 @@
+const jwt = require("jsonwebtoken");
+
 const User = require("../models/User");
+
+exports.refreshToken = async (req, res) => {
+    if (!req.cookies || !req.cookies.__refresh_token) return res.status(401).end();
+
+    try {
+        const payload = jwt.verify(req.cookies.__refresh_token, process.env.JWT_SECRET);
+        const user = await User.findById(payload.sub);
+
+        if (!user) return res.status(401).end();
+        return res.status(200).json({ token: user.getAccessToken(), user: user.omitPassword() });
+    } catch (err) {
+        return res.status(401).end();
+    }
+};
 
 exports.signIn = async (req, res, next) => {
     const { email, password } = req.body;
