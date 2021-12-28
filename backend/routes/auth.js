@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { signIn, signUp, refreshToken } = require("../controllers/auth");
+const { refreshToken, signIn, signUp } = require("../controllers/auth");
 
 router.get("/refresh_token", refreshToken);
 router.post("/signin", signIn);
