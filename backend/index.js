@@ -1,4 +1,5 @@
 const express = require("express");
+const WebSocket = require("ws");
 const helmet = require("helmet");
 const cors = require("cors");
 const xss = require("xss-clean");
@@ -38,6 +39,32 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 3090;
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     console.log(`Server is listening at port ${PORT}`);
+});
+
+const wsServer = new WebSocket.Server({
+    noServer: true
+});
+
+wsServer.on("connection", connection => {
+    console.log("Client connected");
+    
+    connection.on("message", message => {
+        wsServer.clients.forEach(client => {
+            if (client.readyState === WebSocket.OPEN) {
+                client.send(message.toString());
+            }
+        });
+    });
+
+    connection.on("close", () => {
+        console.log("Client disconnected");
+    });
+});
+
+server.on("upgrade", (request, socket, head) => {
+    wsServer.handleUpgrade(request, socket, head, ws => {
+        wsServer.emit("connection", ws, request);
+    });
 });

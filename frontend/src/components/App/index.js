@@ -6,6 +6,7 @@ import Navbar from "../Navbar";
 import Landing from "../Landing";
 import SignIn from "../SignIn";
 import SignUp from "../SignUp";
+import Chat from "../Chat";
 
 const App = () => {
     return (
@@ -17,6 +18,7 @@ const App = () => {
                 <Route path="/" element={<Landing />} />
                 <Route path="/signin" element={<SignIn />} />
                 <Route path="/signup" element={<SignUp />} />
+                <Route path="/chat" element={<Chat />} />
             </Routes>
         </BrowserRouter>
     );

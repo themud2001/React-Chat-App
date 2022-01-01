@@ -8,8 +8,9 @@ import { signIn } from "../../redux/actions";
 import "./styles.scss";
 
 const SignIn = ({ signIn, token, errorMessage }) => {
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit } = useForm({ mode: "onBlur" });
     const navigate = useNavigate();
+    
     const onFormSubmit = data => {
         signIn(data, () => navigate("/"));
     };

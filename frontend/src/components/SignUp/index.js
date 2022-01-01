@@ -11,6 +11,7 @@ const SignUp = ({ signUp, token, errorMessage }) => {
     const { register, formState: { errors }, handleSubmit, watch } = useForm({ mode: "onBlur" });
     const navigate = useNavigate();
     const watchPassword = watch("password");
+    
     const onFormSubmit = data => {
         signUp(data, () => navigate("/"));
     };

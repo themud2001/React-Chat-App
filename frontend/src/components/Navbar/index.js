@@ -11,7 +11,7 @@ const Navbar = ({ token, user }) => {
             <Link className="logo" to="/">Talky</Link>
 
             {token
-                ? <span className="welcome-message">Welcome, {user.username}!</span>
+                ? <span className="welcome-message">Welcome, {user.username}! <Link to="/chat">Chat</Link></span>
                 : (
                     <ul className="nav-links">
                         <li><Link to="/signin">Sign In</Link></li>
